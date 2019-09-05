@@ -1,9 +1,12 @@
+import {simulateLongStartIfConfigured} from './src/utils/blockThread';
 import example from './src/app';
 
 import {
   AppRegistry,
   PushNotificationIOS
 } from 'react-native';
+
+simulateLongStartIfConfigured();
 
 class exampleIos extends example {
 
