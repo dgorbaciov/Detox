@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		397D3E41233A2A4000E69D28 /* DTXIPCConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 397D3E3F233A2A4000E69D28 /* DTXIPCConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		397D3E42233A2A4000E69D28 /* DTXIPCConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 397D3E40233A2A4000E69D28 /* DTXIPCConnection.m */; };
+		39B833DA233A7D7000DBC1D2 /* DetoxIPC.pch in Headers */ = {isa = PBXBuildFile; fileRef = 39B833D9233A7D7000DBC1D2 /* DetoxIPC.pch */; };
+		39B833DE233A920200DBC1D2 /* _DTXIPCDistantObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 39B833DC233A920200DBC1D2 /* _DTXIPCDistantObject.h */; };
+		39B833DF233A920200DBC1D2 /* _DTXIPCDistantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B833DD233A920200DBC1D2 /* _DTXIPCDistantObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +20,10 @@
 		397D3E2E233A293D00E69D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		397D3E3F233A2A4000E69D28 /* DTXIPCConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTXIPCConnection.h; sourceTree = "<group>"; };
 		397D3E40233A2A4000E69D28 /* DTXIPCConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTXIPCConnection.m; sourceTree = "<group>"; };
+		39B833D9233A7D7000DBC1D2 /* DetoxIPC.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetoxIPC.pch; sourceTree = "<group>"; };
+		39B833DB233A898400DBC1D2 /* ObjCRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCRuntime.h; sourceTree = "<group>"; };
+		39B833DC233A920200DBC1D2 /* _DTXIPCDistantObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _DTXIPCDistantObject.h; sourceTree = "<group>"; };
+		39B833DD233A920200DBC1D2 /* _DTXIPCDistantObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _DTXIPCDistantObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,10 +56,13 @@
 		397D3E2C233A293D00E69D28 /* DetoxIPC */ = {
 			isa = PBXGroup;
 			children = (
-				397D3E44233A2DAB00E69D28 /* Apple */,
 				397D3E2E233A293D00E69D28 /* Info.plist */,
+				39B833D9233A7D7000DBC1D2 /* DetoxIPC.pch */,
+				397D3E44233A2DAB00E69D28 /* Apple */,
 				397D3E3F233A2A4000E69D28 /* DTXIPCConnection.h */,
 				397D3E40233A2A4000E69D28 /* DTXIPCConnection.m */,
+				39B833DC233A920200DBC1D2 /* _DTXIPCDistantObject.h */,
+				39B833DD233A920200DBC1D2 /* _DTXIPCDistantObject.m */,
 			);
 			path = DetoxIPC;
 			sourceTree = "<group>";
@@ -61,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				3971742D233A38EE00FFE816 /* NSConnection.h */,
+				39B833DB233A898400DBC1D2 /* ObjCRuntime.h */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -72,6 +83,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B833DE233A920200DBC1D2 /* _DTXIPCDistantObject.h in Headers */,
+				39B833DA233A7D7000DBC1D2 /* DetoxIPC.pch in Headers */,
 				397D3E41233A2A4000E69D28 /* DTXIPCConnection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B833DF233A920200DBC1D2 /* _DTXIPCDistantObject.m in Sources */,
 				397D3E42233A2A4000E69D28 /* DTXIPCConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +294,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = DetoxIPC/DetoxIPC.pch;
 				INFOPLIST_FILE = DetoxIPC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -303,6 +318,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = DetoxIPC/DetoxIPC.pch;
 				INFOPLIST_FILE = DetoxIPC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

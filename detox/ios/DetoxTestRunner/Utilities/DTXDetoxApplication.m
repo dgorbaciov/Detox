@@ -20,6 +20,7 @@
 @interface DTXDetoxApplication () <DetoxTestRunner>
 {
 	DTXIPCConnection* _connection;
+	id _remoteObjectProxy;
 }
 
 @end
@@ -44,6 +45,13 @@
 {
 	NSString* bundleIdentifier = [self valueForKey:@"bundleID"];
 	_connection = [[DTXIPCConnection alloc] initWithServiceName:[NSString stringWithFormat:@"DetoxTestrunner-%@", bundleIdentifier]];
+	_connection.exportedInterface = [DTXIPCInterface interfaceWithProtocol:@protocol(DetoxTestRunner)];
+	_connection.exportedObject = self;
+	_connection.remoteObjectInterface = [DTXIPCInterface interfaceWithProtocol:@protocol(DetoxHelper)];
+	
+	_remoteObjectProxy = [_connection synchronousRemoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
+		NSLog(@"%@", error);
+	}];
 }
 
 - (instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier
@@ -77,7 +85,7 @@
 
 - (id<DetoxHelper>)detoxHelper
 {
-	return _connection.remoteObjectProxy;
+	return _remoteObjectProxy;
 }
 
 - (void)launch
@@ -91,8 +99,9 @@
 	
 	[super launch];
 	
-	NSLog(@"%@", self.value);
-	NSLog(@"");
+	[self.detoxHelper waitForIdleWithCompletionHandler:^{
+		
+	}];
 }
 
 @end

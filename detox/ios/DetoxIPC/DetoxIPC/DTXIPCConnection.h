@@ -13,9 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DTXIPCInterface : NSObject
 
 + (instancetype)interfaceWithProtocol:(Protocol *)protocol;
-@property (nonatomic, assign) Protocol *protocol;
 
-- (NSUInteger)numberOfMethods;
+@property (nonatomic, readonly) Protocol* protocol;
+@property (nonatomic, strong, readonly) NSArray<NSMethodSignature*>* methodSignatures;
+- (NSMethodSignature*)protocolMethodSignatureForSelector:(SEL)aSelector;
 
 
 @end

@@ -8,7 +8,21 @@
 #ifndef DetoxHelperAPI_h
 #define DetoxHelperAPI_h
 
-@protocol DetoxTestRunner
+@protocol ZZZZ <NSObject>
+
+- (void)_testSelector;
+- (void)_testSelectorWithString:(NSString*)str;
+- (void)_testSelectorWithDictionary:(NSDictionary*)dict reply:(void(^)(NSString*))replyBlock;
+- (void)_testSelectorWithDictionary:(NSDictionary*)dict reply1:(void(^)(NSString*))replyBlock reply2:(void(^)(NSString*))replyBlock;
+
+@end
+
+@protocol DetoxTestRunner <ZZZZ>
+
+- (void)testSelector;
+- (void)testSelectorWithString:(NSString*)str;
+- (void)testSelectorWithDictionary:(NSDictionary*)dict reply:(void(^)(NSString*))replyBlock;
+- (void)testSelectorWithDictionary:(NSDictionary*)dict reply1:(void(^)(NSString*))replyBlock reply2:(void(^)(NSString*))replyBlock;
 
 @end
 

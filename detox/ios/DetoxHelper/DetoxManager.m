@@ -45,6 +45,9 @@
 	dispatch_once(&onceToken, ^{
 		NSString* serviceName = NSProcessInfo.processInfo.environment[@"DetoxRunnerServiceName"];
 		_runnerConnection = [[DTXIPCConnection alloc] initWithRegisteredServiceName:serviceName];
+		_runnerConnection.exportedInterface = [DTXIPCInterface interfaceWithProtocol:@protocol(DetoxHelper)];
+		_runnerConnection.exportedObject = self;
+		_runnerConnection.remoteObjectInterface = [DTXIPCInterface interfaceWithProtocol:@protocol(DetoxTestRunner)];
 	});
 }
 
